@@ -8,13 +8,15 @@ before_install:
    -in id_rsa.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
   - echo -e "Host 39.108.65.147ntStrictHostKeyChecking non" >> ~/.ssh/config
-
+  
 addons:
- ssh_known_hosts: $IP
+ ssh_known_hosts: 39.108.65.147
+
+
 script:
   - ls
 after_success:
- - scp -o stricthostkeychecking=no -r ./* root@$IP:/root/www/wwwroot/hello/
+ - scp -o stricthostkeychecking=no -r ./* root@39.108.65.147:/root/www/wwwroot/hello/
 branches:
   only:
     - master
