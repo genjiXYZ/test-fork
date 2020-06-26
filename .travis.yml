@@ -1,17 +1,18 @@
+
+
 language: node_js
-# 指定 NodeJs 版本，也可直接设为 stable
-node_js: 10.14.1
-
-script:
-	- ls
-
+node_js:
+  - 8.12.0
 before_install:
-	- openssl aes-256-cbc -K $encrypted_024e66b057a6_key -iv $encrypted_024e66b057a6_iv	
-  	-in id_rsa.enc -out ~/.ssh/id_rsa -d
+  - openssl aes-256-cbc -K $encrypted_024e66b057a6_key -iv $encrypted_024e66b057a6_iv	
+   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 
 addons:
-	ssh_known_hosts: $IP
-
-
-	after_success:
-	- scp -o stricthostkeychecking=no -r ./* root@$IP:/root/www/wwwroot/hello/
+ ssh_known_hosts: $IP
+script:
+  - ls
+after_success:
+ - scp -o stricthostkeychecking=no -r ./* root@$IP:/root/www/wwwroot/hello/
+branches:
+  only:
+    - master
