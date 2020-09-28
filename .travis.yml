@@ -20,4 +20,4 @@ before_install:
 
 script:
   - ls
-  - ssh root@${IP} 'cd /www/wwwroot/blog.genji.xyz
+  - ssh root@${IP} 'cd /www/wwwroot/blog.genji.xyz'
