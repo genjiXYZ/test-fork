@@ -22,5 +22,4 @@ script:
   - ls
   
 after_success:
-  - ssh -o StrictHostKeyChecking=no root@${IP} 'cd /www/wwwroot/blog.genji.xyz'
-  - ls
+  - ssh -o StrictHostKeyChecking=no root@${IP} 'cd /www/wwwroot/blog.genji.xyz && ls'
