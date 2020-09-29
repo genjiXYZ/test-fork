@@ -20,4 +20,6 @@ before_install:
   - chmod 600 ~/.ssh/id_rsa
 script:
   - ls
+  
+after_success:
   - ssh -o StrictHostKeyChecking=no root@${IP} 'cd /www/wwwroot/blog.genji.xyz'
